@@ -1,0 +1,1302 @@
+{
+  "repository_name": "Polly",
+  "timestamp": "2026-06-15T22:47:19.846838+00:00",
+  "overall_score": 0.9747818358112476,
+  "check_summaries": [
+    {
+      "check_name": "function_size",
+      "description": "Checks that functions/methods do not exceed line count thresholds",
+      "check_type": "standard",
+      "total_entities_checked": 1944,
+      "findings_count": 0,
+      "warning_count": 0,
+      "score": 1.0,
+      "finding_groups": []
+    },
+    {
+      "check_name": "fan_out",
+      "description": "Checks efferent coupling: how many other functions each function calls",
+      "check_type": "standard",
+      "total_entities_checked": 1944,
+      "findings_count": 59,
+      "warning_count": 59,
+      "score": 0.9696502057613169,
+      "finding_groups": [
+        {
+          "severity": "warning",
+          "threshold": 10,
+          "description": "Functions calling more than 10.0 other functions",
+          "entities": [
+            {
+              "entity_name": "CircuitBreaker.CircuitBreakerPolicy.CircuitBreakerPolicy(PolicyBuilder policyBuilder, ICircuitController<EmptyStruct> breakerController)",
+              "file_path": "src/Polly/CircuitBreaker/CircuitBreakerPolicy.cs",
+              "line_start": 10,
+              "line_end": 15,
+              "metric_value": 28
+            },
+            {
+              "entity_name": "Fallback.FallbackPolicy.FallbackPolicy(PolicyBuilder policyBuilder, Action<Exception, Context> onFallback, Action<Exception, Context, CancellationToken> fallbackAction)",
+              "file_path": "src/Polly/Fallback/FallbackPolicy.cs",
+              "line_start": 12,
+              "line_end": 21,
+              "metric_value": 28
+            },
+            {
+              "entity_name": "Retry.RetryPolicy.RetryPolicy(PolicyBuilder policyBuilder, Action<Exception, TimeSpan, int, Context> onRetry, int permittedRetryCount = 2147483647, IEnumerable<TimeSpan> sleepDurationsEnumerable = null, Func<int, Exception, Context, TimeSpan> sleepDurationProvider = null)",
+              "file_path": "src/Polly/Retry/RetryPolicy.cs",
+              "line_start": 14,
+              "line_end": 27,
+              "metric_value": 28
+            },
+            {
+              "entity_name": "Wrap.PolicyWrap.PolicyWrap(Policy outer, ISyncPolicy inner)",
+              "file_path": "src/Polly/Wrap/PolicyWrap.cs",
+              "line_start": 21,
+              "line_end": 27,
+              "metric_value": 28
+            },
+            {
+              "entity_name": "Timeout.TimeoutResilienceStrategy.ExecuteCore<TResult, TState>(Func<ResilienceContext, TState, ValueTask<Outcome<TResult>>> callback, ResilienceContext context, TState state)",
+              "file_path": "src/Polly.Core/Timeout/TimeoutResilienceStrategy.cs",
+              "line_start": 25,
+              "line_end": 94,
+              "metric_value": 24
+            },
+            {
+              "entity_name": "Utils.Pipeline.ReloadableComponent.DisposeDiscardedComponentSafeAsync(PipelineComponent component)",
+              "file_path": "src/Polly.Core/Utils/Pipeline/ReloadableComponent.cs",
+              "line_start": 83,
+              "line_end": 95,
+              "metric_value": 21
+            },
+            {
+              "entity_name": "Hedging.HedgingResilienceStrategy.HedgingResilienceStrategy<T>.ExecuteCore<TState>(Func<ResilienceContext, TState, ValueTask<Outcome<T>>> callback, ResilienceContext context, TState state)",
+              "file_path": "src/Polly.Core/Hedging/HedgingResilienceStrategy.cs",
+              "line_start": 33,
+              "line_end": 84,
+              "metric_value": 20
+            },
+            {
+              "entity_name": "Retry.RetryResilienceStrategy.RetryResilienceStrategy<T>.ExecuteCore<TState>(Func<ResilienceContext, TState, ValueTask<Outcome<T>>> callback, ResilienceContext context, TState state)",
+              "file_path": "src/Polly.Core/Retry/RetryResilienceStrategy.cs",
+              "line_start": 46,
+              "line_end": 136,
+              "metric_value": 20
+            },
+            {
+              "entity_name": "Utils.Pipeline.ReloadableComponent.Reload()",
+              "file_path": "src/Polly.Core/Utils/Pipeline/ReloadableComponent.cs",
+              "line_start": 57,
+              "line_end": 82,
+              "metric_value": 20
+            },
+            {
+              "entity_name": "Utils.DisposeHelper.TryDisposeSafeAsync<T>(T value, bool isSynchronous)",
+              "file_path": "src/Polly.Core/Utils/DisposeHelper.cs",
+              "line_start": 7,
+              "line_end": 40,
+              "metric_value": 18
+            },
+            {
+              "entity_name": "AsyncPolicy.ExecuteOverloads.AsyncPolicy.ExecuteInternalAsync<TResult>(Func<Context, CancellationToken, Task<TResult>> action, Context context, bool continueOnCapturedContext, CancellationToken cancellationToken)",
+              "file_path": "src/Polly/AsyncPolicy.ExecuteOverloads.cs",
+              "line_start": 485,
+              "line_end": 502,
+              "metric_value": 17
+            },
+            {
+              "entity_name": "AsyncPolicy.TResult.ExecuteOverloads.AsyncPolicy<TResult>.ExecuteInternalAsync(Func<Context, CancellationToken, Task<TResult>> action, Context context, bool continueOnCapturedContext, CancellationToken cancellationToken)",
+              "file_path": "src/Polly/AsyncPolicy.TResult.ExecuteOverloads.cs",
+              "line_start": 227,
+              "line_end": 244,
+              "metric_value": 17
+            },
+            {
+              "entity_name": "Policy.ExecuteOverloads.Policy.Execute<TResult>(Func<Context, CancellationToken, TResult> action, Context context, CancellationToken cancellationToken)",
+              "file_path": "src/Polly/Policy.ExecuteOverloads.cs",
+              "line_start": 148,
+              "line_end": 166,
+              "metric_value": 17
+            },
+            {
+              "entity_name": "Policy.TResult.ExecuteOverloads.Policy<TResult>.Execute(Func<Context, CancellationToken, TResult> action, Context context, CancellationToken cancellationToken)",
+              "file_path": "src/Polly/Policy.TResult.ExecuteOverloads.cs",
+              "line_start": 68,
+              "line_end": 86,
+              "metric_value": 17
+            },
+            {
+              "entity_name": "ResiliencePipeline.AsyncT.ResiliencePipeline.ExecuteAsync<TResult, TState>(Func<TState, CancellationToken, ValueTask<TResult>> callback, TState state, CancellationToken cancellationToken = default(CancellationToken))",
+              "file_path": "src/Polly.Core/ResiliencePipeline.AsyncT.cs",
+              "line_start": 121,
+              "line_end": 154,
+              "metric_value": 17
+            },
+            {
+              "entity_name": "ResiliencePipeline.AsyncT.ResiliencePipeline.ExecuteAsync<TResult>(Func<CancellationToken, ValueTask<TResult>> callback, CancellationToken cancellationToken = default(CancellationToken))",
+              "file_path": "src/Polly.Core/ResiliencePipeline.AsyncT.cs",
+              "line_start": 163,
+              "line_end": 195,
+              "metric_value": 17
+            },
+            {
+              "entity_name": "Utils.Pipeline.BridgeComponentBase.DisposeAsync()",
+              "file_path": "src/Polly.Core/Utils/Pipeline/BridgeComponentBase.cs",
+              "line_start": 7,
+              "line_end": 20,
+              "metric_value": 17
+            },
+            {
+              "entity_name": "Utils.Pipeline.ReloadableComponent.DisposeAsync()",
+              "file_path": "src/Polly.Core/Utils/Pipeline/ReloadableComponent.cs",
+              "line_start": 36,
+              "line_end": 41,
+              "metric_value": 17
+            },
+            {
+              "entity_name": "CircuitBreaker.AsyncCircuitBreakerEngine.ImplementationAsync<TResult>(Func<Context, CancellationToken, Task<TResult>> action, Context context, bool continueOnCapturedContext, ExceptionPredicates shouldHandleExceptionPredicates, ResultPredicates<TResult> shouldHandleResultPredicates, ICircuitController<TResult> breakerController, CancellationToken cancellationToken)",
+              "file_path": "src/Polly/CircuitBreaker/AsyncCircuitBreakerEngine.cs",
+              "line_start": 6,
+              "line_end": 48,
+              "metric_value": 16
+            },
+            {
+              "entity_name": "CircuitBreaker.Controller.CircuitStateController.CircuitStateController<T>.OnActionPreExecuteAsync(ResilienceContext context)",
+              "file_path": "src/Polly.Core/CircuitBreaker/Controller/CircuitStateController.cs",
+              "line_start": 124,
+              "line_end": 178,
+              "metric_value": 16
+            },
+            {
+              "entity_name": "ResiliencePipeline.Async.ResiliencePipeline.ExecuteAsync<TState>(Func<TState, CancellationToken, ValueTask> callback, TState state, CancellationToken cancellationToken = default(CancellationToken))",
+              "file_path": "src/Polly.Core/ResiliencePipeline.Async.cs",
+              "line_start": 90,
+              "line_end": 124,
+              "metric_value": 16
+            },
+            {
+              "entity_name": "ResiliencePipeline.Async.ResiliencePipeline.ExecuteAsync(Func<CancellationToken, ValueTask> callback, CancellationToken cancellationToken = default(CancellationToken))",
+              "file_path": "src/Polly.Core/ResiliencePipeline.Async.cs",
+              "line_start": 132,
+              "line_end": 166,
+              "metric_value": 16
+            },
+            {
+              "entity_name": "CircuitBreaker.CircuitBreakerEngine.Implementation<TResult>(Func<Context, CancellationToken, TResult> action, Context context, ExceptionPredicates shouldHandleExceptionPredicates, ResultPredicates<TResult> shouldHandleResultPredicates, ICircuitController<TResult> breakerController, CancellationToken cancellationToken)",
+              "file_path": "src/Polly/CircuitBreaker/CircuitBreakerEngine.cs",
+              "line_start": 8,
+              "line_end": 53,
+              "metric_value": 15
+            },
+            {
+              "entity_name": "ResiliencePipeline.AsyncT.ResiliencePipeline.ExecuteAsync<TResult, TState>(Func<ResilienceContext, TState, ValueTask<TResult>> callback, ResilienceContext context, TState state)",
+              "file_path": "src/Polly.Core/ResiliencePipeline.AsyncT.cs",
+              "line_start": 48,
+              "line_end": 75,
+              "metric_value": 15
+            },
+            {
+              "entity_name": "ResiliencePipeline.AsyncT.ResiliencePipeline.ExecuteAsync<TResult>(Func<ResilienceContext, ValueTask<TResult>> callback, ResilienceContext context)",
+              "file_path": "src/Polly.Core/ResiliencePipeline.AsyncT.cs",
+              "line_start": 84,
+              "line_end": 110,
+              "metric_value": 15
+            },
+            {
+              "entity_name": "Utils.Pipeline.PipelineComponent.ExecuteCoreSync<TResult, TState>(Func<ResilienceContext, TState, TResult> callback, ResilienceContext context, TState state)",
+              "file_path": "src/Polly.Core/Utils/Pipeline/PipelineComponent.cs",
+              "line_start": 20,
+              "line_end": 38,
+              "metric_value": 15
+            },
+            {
+              "entity_name": "Hedging.Controller.TaskExecution.TaskExecution<T>.InitializeAsync<TState>(HedgedTaskType type, ResilienceContext primaryContext, Func<ResilienceContext, TState, ValueTask<Outcome<T>>> primaryCallback, TState state, int attemptNumber)",
+              "file_path": "src/Polly.Core/Hedging/Controller/TaskExecution.cs",
+              "line_start": 88,
+              "line_end": 147,
+              "metric_value": 14
+            },
+            {
+              "entity_name": "ResiliencePipeline.Async.ResiliencePipeline.ExecuteAsync<TState>(Func<ResilienceContext, TState, ValueTask> callback, ResilienceContext context, TState state)",
+              "file_path": "src/Polly.Core/ResiliencePipeline.Async.cs",
+              "line_start": 17,
+              "line_end": 45,
+              "metric_value": 14
+            },
+            {
+              "entity_name": "ResiliencePipeline.Async.ResiliencePipeline.ExecuteAsync(Func<ResilienceContext, ValueTask> callback, ResilienceContext context)",
+              "file_path": "src/Polly.Core/ResiliencePipeline.Async.cs",
+              "line_start": 53,
+              "line_end": 80,
+              "metric_value": 14
+            },
+            {
+              "entity_name": "ResiliencePipeline.AsyncT.ResiliencePipeline.ExecuteOutcomeAsync<TResult, TState>(Func<ResilienceContext, TState, ValueTask<Outcome<TResult>>> callback, ResilienceContext context, TState state)",
+              "file_path": "src/Polly.Core/ResiliencePipeline.AsyncT.cs",
+              "line_start": 25,
+              "line_end": 37,
+              "metric_value": 14
+            },
+            {
+              "entity_name": "Caching.AsyncCacheEngine.ImplementationAsync<TResult>(IAsyncCacheProvider<TResult> cacheProvider, ITtlStrategy<TResult> ttlStrategy, Func<Context, string> cacheKeyStrategy, Func<Context, CancellationToken, Task<TResult>> action, Context context, bool continueOnCapturedContext, Action<Context, string> onCacheGet, Action<Context, string> onCacheMiss, Action<Context, string> onCachePut, Action<Context, string, Exception> onCacheGetError, Action<Context, string, Exception> onCachePutError, CancellationToken cancellationToken)",
+              "file_path": "src/Polly/Caching/AsyncCacheEngine.cs",
+              "line_start": 7,
+              "line_end": 74,
+              "metric_value": 13
+            },
+            {
+              "entity_name": "Caching.CacheEngine.Implementation<TResult>(ISyncCacheProvider<TResult> cacheProvider, ITtlStrategy<TResult> ttlStrategy, Func<Context, string> cacheKeyStrategy, Func<Context, CancellationToken, TResult> action, Context context, Action<Context, string> onCacheGet, Action<Context, string> onCacheMiss, Action<Context, string> onCachePut, Action<Context, string, Exception> onCacheGetError, Action<Context, string, Exception> onCachePutError, CancellationToken cancellationToken)",
+              "file_path": "src/Polly/Caching/CacheEngine.cs",
+              "line_start": 7,
+              "line_end": 73,
+              "metric_value": 13
+            },
+            {
+              "entity_name": "CircuitBreaker.AdvancedCircuitController.AdvancedCircuitController<TResult>.OnActionSuccess(Context context)",
+              "file_path": "src/Polly/CircuitBreaker/AdvancedCircuitController.cs",
+              "line_start": 45,
+              "line_end": 68,
+              "metric_value": 13
+            },
+            {
+              "entity_name": "CircuitBreaker.AdvancedCircuitController.AdvancedCircuitController<TResult>.OnActionFailure(DelegateResult<TResult> outcome, Context context)",
+              "file_path": "src/Polly/CircuitBreaker/AdvancedCircuitController.cs",
+              "line_start": 69,
+              "line_end": 102,
+              "metric_value": 13
+            },
+            {
+              "entity_name": "Retry.AsyncRetryEngine.ImplementationAsync<TResult>(Func<Context, CancellationToken, Task<TResult>> action, Context context, ExceptionPredicates shouldRetryExceptionPredicates, ResultPredicates<TResult> shouldRetryResultPredicates, Func<DelegateResult<TResult>, TimeSpan, int, Context, Task> onRetryAsync, CancellationToken cancellationToken, int permittedRetryCount = 2147483647, IEnumerable<TimeSpan> sleepDurationsEnumerable = null, Func<int, DelegateResult<TResult>, Context, TimeSpan> sleepDurationProvider = null, bool continueOnCapturedContext = false)",
+              "file_path": "src/Polly/Retry/AsyncRetryEngine.cs",
+              "line_start": 7,
+              "line_end": 88,
+              "metric_value": 13
+            },
+            {
+              "entity_name": "Retry.RetryEngine.Implementation<TResult>(Func<Context, CancellationToken, TResult> action, Context context, ExceptionPredicates shouldRetryExceptionPredicates, ResultPredicates<TResult> shouldRetryResultPredicates, Action<DelegateResult<TResult>, TimeSpan, int, Context> onRetry, CancellationToken cancellationToken, int permittedRetryCount = 2147483647, IEnumerable<TimeSpan> sleepDurationsEnumerable = null, Func<int, DelegateResult<TResult>, Context, TimeSpan> sleepDurationProvider = null)",
+              "file_path": "src/Polly/Retry/RetryEngine.cs",
+              "line_start": 7,
+              "line_end": 88,
+              "metric_value": 13
+            },
+            {
+              "entity_name": "Registry.ResiliencePipelineRegistry.ResiliencePipelineRegistry<TKey>.DisposeAsync()",
+              "file_path": "src/Polly.Core/Registry/ResiliencePipelineRegistry.cs",
+              "line_start": 229,
+              "line_end": 248,
+              "metric_value": 13
+            },
+            {
+              "entity_name": "Utils.Pipeline.ComponentDisposeHelper.ForceDisposeAsync()",
+              "file_path": "src/Polly.Core/Utils/Pipeline/ComponentDisposeHelper.cs",
+              "line_start": 35,
+              "line_end": 40,
+              "metric_value": 13
+            },
+            {
+              "entity_name": "Utils.Pipeline.ComponentWithDisposeCallbacks.DisposeAsync()",
+              "file_path": "src/Polly.Core/Utils/Pipeline/ComponentWithDisposeCallbacks.cs",
+              "line_start": 15,
+              "line_end": 21,
+              "metric_value": 13
+            },
+            {
+              "entity_name": "Fallback.FallbackResilienceStrategy.FallbackResilienceStrategy<T>.ExecuteCore<TState>(Func<ResilienceContext, TState, ValueTask<Outcome<T>>> callback, ResilienceContext context, TState state)",
+              "file_path": "src/Polly.Core/Fallback/FallbackResilienceStrategy.cs",
+              "line_start": 20,
+              "line_end": 56,
+              "metric_value": 12
+            },
+            {
+              "entity_name": "Utils.Pipeline.CompositeComponent.DisposeAsync()",
+              "file_path": "src/Polly.Core/Utils/Pipeline/CompositeComponent.cs",
+              "line_start": 63,
+              "line_end": 70,
+              "metric_value": 12
+            },
+            {
+              "entity_name": "Utils.Pipeline.CompositeComponent.ExecuteCoreWithoutTelemetry<TResult, TState>(Func<ResilienceContext, TState, ValueTask<Outcome<TResult>>> callback, ResilienceContext context, TState state)",
+              "file_path": "src/Polly.Core/Utils/Pipeline/CompositeComponent.cs",
+              "line_start": 84,
+              "line_end": 98,
+              "metric_value": 12
+            },
+            {
+              "entity_name": "Utils.Pipeline.DelegatingComponent.ExecuteNext<TResult, TState>(PipelineComponent next, Func<ResilienceContext, TState, ValueTask<Outcome<TResult>>> callback, ResilienceContext context, TState state)",
+              "file_path": "src/Polly.Core/Utils/Pipeline/DelegatingComponent.cs",
+              "line_start": 31,
+              "line_end": 44,
+              "metric_value": 12
+            },
+            {
+              "entity_name": "Utils.Pipeline.DelegatingComponent.ExecuteComponentAot<TResult, TState>(Func<ResilienceContext, TState, ValueTask<Outcome<TResult>>> callback, ResilienceContext context, TState state)",
+              "file_path": "src/Polly.Core/Utils/Pipeline/DelegatingComponent.cs",
+              "line_start": 60,
+              "line_end": 73,
+              "metric_value": 12
+            },
+            {
+              "entity_name": "Utils.Pipeline.ExecutionTrackingComponent.DisposeAsync()",
+              "file_path": "src/Polly.Core/Utils/Pipeline/ExecutionTrackingComponent.cs",
+              "line_start": 39,
+              "line_end": 62,
+              "metric_value": 12
+            },
+            {
+              "entity_name": "AsyncPolicy.ExecuteOverloads.AsyncPolicy.ExecuteInternalAsync(Func<Context, CancellationToken, Task> action, Context context, bool continueOnCapturedContext, CancellationToken cancellationToken)",
+              "file_path": "src/Polly/AsyncPolicy.ExecuteOverloads.cs",
+              "line_start": 471,
+              "line_end": 484,
+              "metric_value": 11
+            },
+            {
+              "entity_name": "AsyncPolicy.NonGenericImplementation.AsyncPolicy.ImplementationAsync(Func<Context, CancellationToken, Task> action, Context context, CancellationToken cancellationToken, bool continueOnCapturedContext)",
+              "file_path": "src/Polly/AsyncPolicy.NonGenericImplementation.cs",
+              "line_start": 14,
+              "line_end": 25,
+              "metric_value": 11
+            },
+            {
+              "entity_name": "Policy.ExecuteOverloads.Policy.Execute(Action<Context, CancellationToken> action, Context context, CancellationToken cancellationToken)",
+              "file_path": "src/Polly/Policy.ExecuteOverloads.cs",
+              "line_start": 60,
+              "line_end": 78,
+              "metric_value": 11
+            },
+            {
+              "entity_name": "Policy.SyncNonGenericImplementation.Policy.Implementation(Action<Context, CancellationToken> action, Context context, CancellationToken cancellationToken)",
+              "file_path": "src/Polly/Policy.SyncNonGenericImplementation.cs",
+              "line_start": 12,
+              "line_end": 18,
+              "metric_value": 11
+            },
+            {
+              "entity_name": "Simmy.Latency.ChaosLatencyStrategy.ExecuteCore<TResult, TState>(Func<ResilienceContext, TState, ValueTask<Outcome<TResult>>> callback, ResilienceContext context, TState state)",
+              "file_path": "src/Polly.Core/Simmy/Latency/ChaosLatencyStrategy.cs",
+              "line_start": 30,
+              "line_end": 62,
+              "metric_value": 11
+            },
+            {
+              "entity_name": "Utils.Pipeline.DelegatingComponent.ExecuteComponent<TResult, TState>(Func<ResilienceContext, TState, ValueTask<Outcome<TResult>>> callback, ResilienceContext context, TState state)",
+              "file_path": "src/Polly.Core/Utils/Pipeline/DelegatingComponent.cs",
+              "line_start": 46,
+              "line_end": 54,
+              "metric_value": 11
+            },
+            {
+              "entity_name": "CircuitBreaker.AdvancedCircuitController.AdvancedCircuitController<TResult>.OnCircuitReset(Context context)",
+              "file_path": "src/Polly/CircuitBreaker/AdvancedCircuitController.cs",
+              "line_start": 33,
+              "line_end": 44,
+              "metric_value": 10
+            },
+            {
+              "entity_name": "CircuitBreaker.CircuitStateController.CircuitStateController<TResult>.Isolate()",
+              "file_path": "src/Polly/CircuitBreaker/CircuitStateController.cs",
+              "line_start": 73,
+              "line_end": 80,
+              "metric_value": 10
+            },
+            {
+              "entity_name": "CircuitBreaker.ConsecutiveCountCircuitController.ConsecutiveCountCircuitController<TResult>.OnActionSuccess(Context context)",
+              "file_path": "src/Polly/CircuitBreaker/ConsecutiveCountCircuitController.cs",
+              "line_start": 24,
+              "line_end": 46,
+              "metric_value": 10
+            },
+            {
+              "entity_name": "CircuitBreaker.Controller.CircuitStateController.CircuitStateController<T>.IsolateCircuitAsync(ResilienceContext context)",
+              "file_path": "src/Polly.Core/CircuitBreaker/Controller/CircuitStateController.cs",
+              "line_start": 88,
+              "line_end": 107,
+              "metric_value": 10
+            },
+            {
+              "entity_name": "Registry.ResiliencePipelineRegistry.ResiliencePipelineRegistry<TKey>.GetOrAddPipeline(TKey key, Action<ResiliencePipelineBuilder, ConfigureBuilderContext<TKey>> configure)",
+              "file_path": "src/Polly.Core/Registry/ResiliencePipelineRegistry.cs",
+              "line_start": 114,
+              "line_end": 136,
+              "metric_value": 10
+            },
+            {
+              "entity_name": "Simmy.Behavior.ChaosBehaviorStrategy.ExecuteCore<TResult, TState>(Func<ResilienceContext, TState, ValueTask<Outcome<TResult>>> callback, ResilienceContext context, TState state)",
+              "file_path": "src/Polly.Core/Simmy/Behavior/ChaosBehaviorStrategy.cs",
+              "line_start": 23,
+              "line_end": 51,
+              "metric_value": 10
+            },
+            {
+              "entity_name": "Simmy.Fault.ChaosFaultStrategy.ExecuteCore<TResult, TState>(Func<ResilienceContext, TState, ValueTask<Outcome<TResult>>> callback, ResilienceContext context, TState state)",
+              "file_path": "src/Polly.Core/Simmy/Fault/ChaosFaultStrategy.cs",
+              "line_start": 22,
+              "line_end": 54,
+              "metric_value": 10
+            },
+            {
+              "entity_name": "Simmy.Outcomes.ChaosOutcomeStrategy.ChaosOutcomeStrategy<T>.ExecuteCore<TState>(Func<ResilienceContext, TState, ValueTask<Outcome<T>>> callback, ResilienceContext context, TState state)",
+              "file_path": "src/Polly.Core/Simmy/Outcomes/ChaosOutcomeStrategy.cs",
+              "line_start": 19,
+              "line_end": 45,
+              "metric_value": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "check_name": "fan_in",
+      "description": "Checks afferent coupling: how many other functions call each function",
+      "check_type": "standard",
+      "total_entities_checked": 1944,
+      "findings_count": 58,
+      "warning_count": 58,
+      "score": 0.970164609053498,
+      "finding_groups": [
+        {
+          "severity": "warning",
+          "threshold": 10,
+          "description": "Functions called by more than 10.0 other functions",
+          "entities": [
+            {
+              "entity_name": "Utils.Guard.NotNull<T>(T value, string argumentName = \"\")",
+              "file_path": "src/Polly.Core/Utils/Guard.cs",
+              "line_start": 9,
+              "line_end": 23,
+              "metric_value": 76
+            },
+            {
+              "entity_name": "Caching.DefaultCacheKeyStrategy.GetCacheKey(Context context)",
+              "file_path": "src/Polly/Caching/DefaultCacheKeyStrategy.cs",
+              "line_start": 14,
+              "line_end": 23,
+              "metric_value": 55
+            },
+            {
+              "entity_name": "Caching.ICacheKeyStrategy.GetCacheKey(Context context)",
+              "file_path": "src/Polly/Caching/ICacheKeyStrategy.cs",
+              "line_start": 14,
+              "line_end": 15,
+              "metric_value": 55
+            },
+            {
+              "entity_name": "Caching.RelativeTtl.RelativeTtl(TimeSpan ttl)",
+              "file_path": "src/Polly/Caching/RelativeTtl.cs",
+              "line_start": 15,
+              "line_end": 24,
+              "metric_value": 36
+            },
+            {
+              "entity_name": "Context.Dictionary.Context.Context(string operationKey, IDictionary<string, object> contextData)",
+              "file_path": "src/Polly/Context.Dictionary.cs",
+              "line_start": 27,
+              "line_end": 30,
+              "metric_value": 32
+            },
+            {
+              "entity_name": "Context.Dictionary.Context.Context(IDictionary<string, object> contextData)",
+              "file_path": "src/Polly/Context.Dictionary.cs",
+              "line_start": 31,
+              "line_end": 41,
+              "metric_value": 32
+            },
+            {
+              "entity_name": "Timeout.TimeoutValidator.ValidateTimeSpanTimeout(TimeSpan timeout)",
+              "file_path": "src/Polly/Timeout/TimeoutValidator.cs",
+              "line_start": 13,
+              "line_end": 23,
+              "metric_value": 22
+            },
+            {
+              "entity_name": "ResilienceContextPool.Shared.ResilienceContextPool.SharedPool.Return(ResilienceContext context)",
+              "file_path": "src/Polly.Core/ResilienceContextPool.Shared.cs",
+              "line_start": 22,
+              "line_end": 23,
+              "metric_value": 21
+            },
+            {
+              "entity_name": "ResilienceContextPool.Return(ResilienceContext context)",
+              "file_path": "src/Polly.Core/ResilienceContextPool.cs",
+              "line_start": 82,
+              "line_end": 83,
+              "metric_value": 21
+            },
+            {
+              "entity_name": "Outcome.FromException<TResult>(Exception exception)",
+              "file_path": "src/Polly.Core/Outcome.cs",
+              "line_start": 31,
+              "line_end": 37,
+              "metric_value": 18
+            },
+            {
+              "entity_name": "Utils.Pipeline.BridgeComponent.TResult.BridgeComponent<T>.ExecuteCore<TResult, TState>(Func<ResilienceContext, TState, ValueTask<Outcome<TResult>>> callback, ResilienceContext context, TState state)",
+              "file_path": "src/Polly.Core/Utils/Pipeline/BridgeComponent.TResult.cs",
+              "line_start": 13,
+              "line_end": 52,
+              "metric_value": 18
+            },
+            {
+              "entity_name": "Utils.Pipeline.BridgeComponent.ExecuteCore<TResult, TState>(Func<ResilienceContext, TState, ValueTask<Outcome<TResult>>> callback, ResilienceContext context, TState state)",
+              "file_path": "src/Polly.Core/Utils/Pipeline/BridgeComponent.cs",
+              "line_start": 11,
+              "line_end": 15,
+              "metric_value": 18
+            },
+            {
+              "entity_name": "Utils.Pipeline.CompositeComponent.ExecuteCore<TResult, TState>(Func<ResilienceContext, TState, ValueTask<Outcome<TResult>>> callback, ResilienceContext context, TState state)",
+              "file_path": "src/Polly.Core/Utils/Pipeline/CompositeComponent.cs",
+              "line_start": 71,
+              "line_end": 83,
+              "metric_value": 18
+            },
+            {
+              "entity_name": "Utils.Pipeline.DelegatingComponent.ExecuteCore<TResult, TState>(Func<ResilienceContext, TState, ValueTask<Outcome<TResult>>> callback, ResilienceContext context, TState state)",
+              "file_path": "src/Polly.Core/Utils/Pipeline/DelegatingComponent.cs",
+              "line_start": 20,
+              "line_end": 26,
+              "metric_value": 18
+            },
+            {
+              "entity_name": "Utils.Pipeline.PipelineComponent.ExecuteCore<TResult, TState>(Func<ResilienceContext, TState, ValueTask<Outcome<TResult>>> callback, ResilienceContext context, TState state)",
+              "file_path": "src/Polly.Core/Utils/Pipeline/PipelineComponent.cs",
+              "line_start": 15,
+              "line_end": 19,
+              "metric_value": 18
+            },
+            {
+              "entity_name": "Utils.Pipeline.PipelineComponent.NullComponent.ExecuteCore<TResult, TState>(Func<ResilienceContext, TState, ValueTask<Outcome<TResult>>> callback, ResilienceContext context, TState state)",
+              "file_path": "src/Polly.Core/Utils/Pipeline/PipelineComponent.cs",
+              "line_start": 43,
+              "line_end": 45,
+              "metric_value": 18
+            },
+            {
+              "entity_name": "Utilities.TimedLock.Dispose()",
+              "file_path": "src/Polly/Utilities/TimedLock.cs",
+              "line_start": 59,
+              "line_end": 75,
+              "metric_value": 17
+            },
+            {
+              "entity_name": "Utils.Pipeline.ComponentWithDisposeCallbacks.ExecuteCore<TResult, TState>(Func<ResilienceContext, TState, ValueTask<Outcome<TResult>>> callback, ResilienceContext context, TState state)",
+              "file_path": "src/Polly.Core/Utils/Pipeline/ComponentWithDisposeCallbacks.cs",
+              "line_start": 22,
+              "line_end": 26,
+              "metric_value": 17
+            },
+            {
+              "entity_name": "Utils.Pipeline.ExecutionTrackingComponent.ExecuteCore<TResult, TState>(Func<ResilienceContext, TState, ValueTask<Outcome<TResult>>> callback, ResilienceContext context, TState state)",
+              "file_path": "src/Polly.Core/Utils/Pipeline/ExecutionTrackingComponent.cs",
+              "line_start": 22,
+              "line_end": 38,
+              "metric_value": 17
+            },
+            {
+              "entity_name": "Utils.Pipeline.ExternalComponent.ExecuteCore<TResult, TState>(Func<ResilienceContext, TState, ValueTask<Outcome<TResult>>> callback, ResilienceContext context, TState state)",
+              "file_path": "src/Polly.Core/Utils/Pipeline/ExternalComponent.cs",
+              "line_start": 10,
+              "line_end": 14,
+              "metric_value": 17
+            },
+            {
+              "entity_name": "Utils.Pipeline.ReloadableComponent.ExecuteCore<TResult, TState>(Func<ResilienceContext, TState, ValueTask<Outcome<TResult>>> callback, ResilienceContext context, TState state)",
+              "file_path": "src/Polly.Core/Utils/Pipeline/ReloadableComponent.cs",
+              "line_start": 31,
+              "line_end": 35,
+              "metric_value": 17
+            },
+            {
+              "entity_name": "Docs.ResiliencePipelineRegistry.PipelineRegistryAdapter.Dispose()",
+              "file_path": "src/Snippets/Docs/ResiliencePipelineRegistry.cs",
+              "line_start": 193,
+              "line_end": 201,
+              "metric_value": 17
+            },
+            {
+              "entity_name": "Bulkhead.AsyncBulkheadPolicy.Dispose()",
+              "file_path": "src/Polly/Bulkhead/AsyncBulkheadPolicy.cs",
+              "line_start": 63,
+              "line_end": 70,
+              "metric_value": 16
+            },
+            {
+              "entity_name": "Bulkhead.AsyncBulkheadPolicy.AsyncBulkheadPolicy<TResult>.Dispose()",
+              "file_path": "src/Polly/Bulkhead/AsyncBulkheadPolicy.cs",
+              "line_start": 132,
+              "line_end": 139,
+              "metric_value": 16
+            },
+            {
+              "entity_name": "Bulkhead.BulkheadPolicy.Dispose()",
+              "file_path": "src/Polly/Bulkhead/BulkheadPolicy.cs",
+              "line_start": 61,
+              "line_end": 68,
+              "metric_value": 16
+            },
+            {
+              "entity_name": "Bulkhead.BulkheadPolicy.BulkheadPolicy<TResult>.Dispose()",
+              "file_path": "src/Polly/Bulkhead/BulkheadPolicy.cs",
+              "line_start": 127,
+              "line_end": 134,
+              "metric_value": 16
+            },
+            {
+              "entity_name": "Timeout.AsyncTimeoutSyntax.Policy.TimeoutAsync(Func<Context, TimeSpan> timeoutProvider, TimeoutStrategy timeoutStrategy, Func<Context, TimeSpan, Task, Exception, Task> onTimeoutAsync)",
+              "file_path": "src/Polly/Timeout/AsyncTimeoutSyntax.cs",
+              "line_start": 376,
+              "line_end": 396,
+              "metric_value": 16
+            },
+            {
+              "entity_name": "Timeout.AsyncTimeoutTResultSyntax.Policy.TimeoutAsync<TResult>(Func<Context, TimeSpan> timeoutProvider, TimeoutStrategy timeoutStrategy, Func<Context, TimeSpan, Task, Exception, Task> onTimeoutAsync)",
+              "file_path": "src/Polly/Timeout/AsyncTimeoutTResultSyntax.cs",
+              "line_start": 405,
+              "line_end": 422,
+              "metric_value": 16
+            },
+            {
+              "entity_name": "Timeout.TimeoutSyntax.Policy.Timeout(Func<Context, TimeSpan> timeoutProvider, TimeoutStrategy timeoutStrategy, Action<Context, TimeSpan, Task, Exception> onTimeout)",
+              "file_path": "src/Polly/Timeout/TimeoutSyntax.cs",
+              "line_start": 389,
+              "line_end": 409,
+              "metric_value": 16
+            },
+            {
+              "entity_name": "Timeout.TimeoutSyntax.Policy.EmptyHandler(Context context, TimeSpan timeout, Task task, Exception exception)",
+              "file_path": "src/Polly/Timeout/TimeoutSyntax.cs",
+              "line_start": 410,
+              "line_end": 414,
+              "metric_value": 16
+            },
+            {
+              "entity_name": "Timeout.TimeoutTResultSyntax.Policy.Timeout<TResult>(Func<Context, TimeSpan> timeoutProvider, TimeoutStrategy timeoutStrategy, Action<Context, TimeSpan, Task, Exception> onTimeout)",
+              "file_path": "src/Polly/Timeout/TimeoutTResultSyntax.cs",
+              "line_start": 408,
+              "line_end": 428,
+              "metric_value": 16
+            },
+            {
+              "entity_name": "Timeout.TimeoutValidator.ValidateSecondsTimeout(int seconds)",
+              "file_path": "src/Polly/Timeout/TimeoutValidator.cs",
+              "line_start": 5,
+              "line_end": 12,
+              "metric_value": 16
+            },
+            {
+              "entity_name": "Telemetry.ResilienceEvent.ResilienceEvent(ResilienceEventSeverity severity, string eventName)",
+              "file_path": "src/Polly.Core/Telemetry/ResilienceEvent.cs",
+              "line_start": 18,
+              "line_end": 23,
+              "metric_value": 16
+            },
+            {
+              "entity_name": "Outcome.TResult.Outcome<TResult>.Outcome(Exception exception)",
+              "file_path": "src/Polly.Core/Outcome.TResult.cs",
+              "line_start": 16,
+              "line_end": 18,
+              "metric_value": 14
+            },
+            {
+              "entity_name": "Caching.CacheProviderExtensions.For<TCacheFormat>(this ISyncCacheProvider nonGenericCacheProvider)",
+              "file_path": "src/Polly/Caching/CacheProviderExtensions.cs",
+              "line_start": 15,
+              "line_end": 17,
+              "metric_value": 13
+            },
+            {
+              "entity_name": "Caching.CacheProviderExtensions.AsyncFor<TCacheFormat>(this IAsyncCacheProvider nonGenericCacheProvider)",
+              "file_path": "src/Polly/Caching/CacheProviderExtensions.cs",
+              "line_start": 24,
+              "line_end": 26,
+              "metric_value": 13
+            },
+            {
+              "entity_name": "AsyncPolicy.ExecuteOverloads.AsyncPolicy.ExecuteAsync<TResult>(Func<Context, CancellationToken, Task<TResult>> action, Context context, CancellationToken cancellationToken, bool continueOnCapturedContext)",
+              "file_path": "src/Polly/AsyncPolicy.ExecuteOverloads.cs",
+              "line_start": 220,
+              "line_end": 229,
+              "metric_value": 12
+            },
+            {
+              "entity_name": "AsyncPolicy.TResult.ExecuteOverloads.AsyncPolicy<TResult>.ExecuteAsync(Func<Context, CancellationToken, Task<TResult>> action, Context context, CancellationToken cancellationToken, bool continueOnCapturedContext)",
+              "file_path": "src/Polly/AsyncPolicy.TResult.ExecuteOverloads.cs",
+              "line_start": 103,
+              "line_end": 112,
+              "metric_value": 12
+            },
+            {
+              "entity_name": "IAsyncPolicy.TResult.IAsyncPolicy<TResult>.ExecuteAsync(Func<Context, CancellationToken, Task<TResult>> action, Context context, CancellationToken cancellationToken, bool continueOnCapturedContext)",
+              "file_path": "src/Polly/IAsyncPolicy.TResult.cs",
+              "line_start": 101,
+              "line_end": 102,
+              "metric_value": 12
+            },
+            {
+              "entity_name": "IAsyncPolicy.ExecuteAsync<TResult>(Func<Context, CancellationToken, Task<TResult>> action, Context context, CancellationToken cancellationToken, bool continueOnCapturedContext)",
+              "file_path": "src/Polly/IAsyncPolicy.cs",
+              "line_start": 196,
+              "line_end": 197,
+              "metric_value": 12
+            },
+            {
+              "entity_name": "Caching.AsyncCacheTResultSyntax.Policy.CacheAsync<TResult>(IAsyncCacheProvider<TResult> cacheProvider, ITtlStrategy ttlStrategy, Func<Context, string> cacheKeyStrategy, Action<Context, string> onCacheGet, Action<Context, string> onCacheMiss, Action<Context, string> onCachePut, Action<Context, string, Exception> onCacheGetError, Action<Context, string, Exception> onCachePutError)",
+              "file_path": "src/Polly/Caching/AsyncCacheTResultSyntax.cs",
+              "line_start": 928,
+              "line_end": 946,
+              "metric_value": 11
+            },
+            {
+              "entity_name": "Caching.CacheTResultSyntax.Policy.Cache<TResult>(ISyncCacheProvider<TResult> cacheProvider, ITtlStrategy ttlStrategy, Func<Context, string> cacheKeyStrategy, Action<Context, string> onCacheGet, Action<Context, string> onCacheMiss, Action<Context, string> onCachePut, Action<Context, string, Exception> onCacheGetError, Action<Context, string, Exception> onCachePutError)",
+              "file_path": "src/Polly/Caching/CacheTResultSyntax.cs",
+              "line_start": 892,
+              "line_end": 903,
+              "metric_value": 11
+            },
+            {
+              "entity_name": "Outcome.FromResult<TResult>(TResult value)",
+              "file_path": "src/Polly.Core/Outcome.cs",
+              "line_start": 14,
+              "line_end": 15,
+              "metric_value": 11
+            },
+            {
+              "entity_name": "AsyncPolicy.ExecuteOverloads.AsyncPolicy.ExecuteAsync(Func<Context, CancellationToken, Task> action, Context context, CancellationToken cancellationToken, bool continueOnCapturedContext)",
+              "file_path": "src/Polly/AsyncPolicy.ExecuteOverloads.cs",
+              "line_start": 103,
+              "line_end": 112,
+              "metric_value": 10
+            },
+            {
+              "entity_name": "Caching.AsyncCacheTResultSyntax.Policy.CacheAsync<TResult>(IAsyncCacheProvider<TResult> cacheProvider, ITtlStrategy ttlStrategy, Func<Context, string> cacheKeyStrategy, Action<Context, string, Exception> onCacheError = null)",
+              "file_path": "src/Polly/Caching/AsyncCacheTResultSyntax.cs",
+              "line_start": 589,
+              "line_end": 591,
+              "metric_value": 10
+            },
+            {
+              "entity_name": "Caching.CacheTResultSyntax.Policy.Cache<TResult>(ISyncCacheProvider<TResult> cacheProvider, ITtlStrategy ttlStrategy, Func<Context, string> cacheKeyStrategy, Action<Context, string, Exception> onCacheError = null)",
+              "file_path": "src/Polly/Caching/CacheTResultSyntax.cs",
+              "line_start": 573,
+              "line_end": 580,
+              "metric_value": 10
+            },
+            {
+              "entity_name": "ExceptionPredicates.Add(ExceptionPredicate predicate)",
+              "file_path": "src/Polly/ExceptionPredicates.cs",
+              "line_start": 10,
+              "line_end": 16,
+              "metric_value": 10
+            },
+            {
+              "entity_name": "IAsyncPolicy.ExecuteAsync(Func<Context, CancellationToken, Task> action, Context context, CancellationToken cancellationToken, bool continueOnCapturedContext)",
+              "file_path": "src/Polly/IAsyncPolicy.cs",
+              "line_start": 100,
+              "line_end": 101,
+              "metric_value": 10
+            },
+            {
+              "entity_name": "PolicyBase.ContextAndKeys.PolicyBase.SetPolicyContext(Context executionContext, out string priorPolicyWrapKey, out string priorPolicyKey)",
+              "file_path": "src/Polly/PolicyBase.ContextAndKeys.cs",
+              "line_start": 39,
+              "line_end": 46,
+              "metric_value": 10
+            },
+            {
+              "entity_name": "CircuitBreaker.CircuitBreakerManualControl.RegistrationDisposable.Dispose()",
+              "file_path": "src/Polly.Core/CircuitBreaker/CircuitBreakerManualControl.cs",
+              "line_start": 126,
+              "line_end": 127,
+              "metric_value": 10
+            },
+            {
+              "entity_name": "Hedging.Controller.HedgingExecutionContext.HedgingExecutionContext<T>.DisposeAsync()",
+              "file_path": "src/Polly.Core/Hedging/Controller/HedgingExecutionContext.cs",
+              "line_start": 76,
+              "line_end": 95,
+              "metric_value": 10
+            },
+            {
+              "entity_name": "Registry.ResiliencePipelineRegistry.TResult.ResiliencePipelineRegistry<TKey>.GenericRegistry<TResult>.DisposeAsync()",
+              "file_path": "src/Polly.Core/Registry/ResiliencePipelineRegistry.TResult.cs",
+              "line_start": 69,
+              "line_end": 76,
+              "metric_value": 10
+            },
+            {
+              "entity_name": "Registry.ResiliencePipelineRegistry.ResiliencePipelineRegistry<TKey>.Dispose()",
+              "file_path": "src/Polly.Core/Registry/ResiliencePipelineRegistry.cs",
+              "line_start": 219,
+              "line_end": 220,
+              "metric_value": 10
+            },
+            {
+              "entity_name": "Utils.Pipeline.ComponentDisposeHelper.DisposeAsync()",
+              "file_path": "src/Polly.Core/Utils/Pipeline/ComponentDisposeHelper.cs",
+              "line_start": 15,
+              "line_end": 24,
+              "metric_value": 10
+            },
+            {
+              "entity_name": "Utils.Pipeline.DelegatingComponent.DisposeAsync()",
+              "file_path": "src/Polly.Core/Utils/Pipeline/DelegatingComponent.cs",
+              "line_start": 17,
+              "line_end": 18,
+              "metric_value": 10
+            },
+            {
+              "entity_name": "Utils.Pipeline.ExternalComponent.DisposeAsync()",
+              "file_path": "src/Polly.Core/Utils/Pipeline/ExternalComponent.cs",
+              "line_start": 15,
+              "line_end": 16,
+              "metric_value": 10
+            },
+            {
+              "entity_name": "Utils.Pipeline.PipelineComponent.DisposeAsync()",
+              "file_path": "src/Polly.Core/Utils/Pipeline/PipelineComponent.cs",
+              "line_start": 39,
+              "line_end": 40,
+              "metric_value": 10
+            },
+            {
+              "entity_name": "Utils.Pipeline.PipelineComponent.NullComponent.DisposeAsync()",
+              "file_path": "src/Polly.Core/Utils/Pipeline/PipelineComponent.cs",
+              "line_start": 46,
+              "line_end": 47,
+              "metric_value": 10
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "check_name": "god_class",
+      "description": "Detects classes with too many methods, too much code, or too many outgoing dependencies",
+      "check_type": "standard",
+      "total_entities_checked": 327,
+      "findings_count": 32,
+      "warning_count": 32,
+      "score": 0.9021406727828746,
+      "finding_groups": [
+        {
+          "severity": "warning",
+          "threshold": 25,
+          "description": "Classes exceeding god class criteria (methods, LOC, or fan-out)",
+          "entities": [
+            {
+              "entity_name": "Retry",
+              "file_path": "bench/Polly.Benchmarks/Retry.cs",
+              "metric_value": 1202.0
+            },
+            {
+              "entity_name": "Retry.AsyncRetryTResultSyntax",
+              "file_path": "src/Polly/Retry/AsyncRetryTResultSyntax.cs",
+              "metric_value": 1190.0
+            },
+            {
+              "entity_name": "Retry.AsyncRetrySyntax",
+              "file_path": "src/Polly/Retry/AsyncRetrySyntax.cs",
+              "metric_value": 1157.0
+            },
+            {
+              "entity_name": "Caching.AsyncCacheTResultSyntax.Policy",
+              "file_path": "src/Polly/Caching/AsyncCacheTResultSyntax.cs",
+              "metric_value": 998.0
+            },
+            {
+              "entity_name": "Caching.CacheTResultSyntax.Policy",
+              "file_path": "src/Polly/Caching/CacheTResultSyntax.cs",
+              "metric_value": 950.0
+            },
+            {
+              "entity_name": "Retry.RetryTResultSyntax",
+              "file_path": "src/Polly/Retry/RetryTResultSyntax.cs",
+              "metric_value": 716.0
+            },
+            {
+              "entity_name": "Retry.RetrySyntax",
+              "file_path": "src/Polly/Retry/RetrySyntax.cs",
+              "metric_value": 653.0
+            },
+            {
+              "entity_name": "AsyncPolicy.ExecuteOverloads.AsyncPolicy",
+              "file_path": "src/Polly/AsyncPolicy.ExecuteOverloads.cs",
+              "metric_value": 528.0
+            },
+            {
+              "entity_name": "Docs.Retry",
+              "file_path": "src/Snippets/Docs/Retry.cs",
+              "metric_value": 418.0
+            },
+            {
+              "entity_name": "Timeout.TimeoutTResultSyntax.Policy",
+              "file_path": "src/Polly/Timeout/TimeoutTResultSyntax.cs",
+              "metric_value": 416.0
+            },
+            {
+              "entity_name": "Timeout.AsyncTimeoutTResultSyntax.Policy",
+              "file_path": "src/Polly/Timeout/AsyncTimeoutTResultSyntax.cs",
+              "metric_value": 413.0
+            },
+            {
+              "entity_name": "Timeout.TimeoutSyntax.Policy",
+              "file_path": "src/Polly/Timeout/TimeoutSyntax.cs",
+              "metric_value": 403.0
+            },
+            {
+              "entity_name": "Policy.ExecuteOverloads.Policy",
+              "file_path": "src/Polly/Policy.ExecuteOverloads.cs",
+              "metric_value": 110.0
+            },
+            {
+              "entity_name": "AsyncPolicy.TResult.ExecuteOverloads.AsyncPolicy<TResult>",
+              "file_path": "src/Polly/AsyncPolicy.TResult.ExecuteOverloads.cs",
+              "metric_value": 82.0
+            },
+            {
+              "entity_name": "ResiliencePipeline.AsyncT.ResiliencePipeline",
+              "file_path": "src/Polly.Core/ResiliencePipeline.AsyncT.cs",
+              "metric_value": 82.0
+            },
+            {
+              "entity_name": "CircuitBreaker.Controller.CircuitStateController.CircuitStateController<T>",
+              "file_path": "src/Polly.Core/CircuitBreaker/Controller/CircuitStateController.cs",
+              "metric_value": 70.0
+            },
+            {
+              "entity_name": "Utils.Pipeline.ReloadableComponent",
+              "file_path": "src/Polly.Core/Utils/Pipeline/ReloadableComponent.cs",
+              "metric_value": 69.0
+            },
+            {
+              "entity_name": "Policy.TResult.ExecuteOverloads.Policy<TResult>",
+              "file_path": "src/Polly/Policy.TResult.ExecuteOverloads.cs",
+              "metric_value": 60.0
+            },
+            {
+              "entity_name": "ResiliencePipeline.Async.ResiliencePipeline",
+              "file_path": "src/Polly.Core/ResiliencePipeline.Async.cs",
+              "metric_value": 60.0
+            },
+            {
+              "entity_name": "Registry.ResiliencePipelineRegistry.ResiliencePipelineRegistry<TKey>",
+              "file_path": "src/Polly.Core/Registry/ResiliencePipelineRegistry.cs",
+              "metric_value": 53.0
+            },
+            {
+              "entity_name": "Caching.AsyncCacheSyntax.Policy",
+              "file_path": "src/Polly/Caching/AsyncCacheSyntax.cs",
+              "metric_value": 43.0
+            },
+            {
+              "entity_name": "Caching.CacheSyntax.Policy",
+              "file_path": "src/Polly/Caching/CacheSyntax.cs",
+              "metric_value": 43.0
+            },
+            {
+              "entity_name": "Timeout.AsyncTimeoutSyntax.Policy",
+              "file_path": "src/Polly/Timeout/AsyncTimeoutSyntax.cs",
+              "metric_value": 43.0
+            },
+            {
+              "entity_name": "CircuitBreaker.AdvancedCircuitController.AdvancedCircuitController<TResult>",
+              "file_path": "src/Polly/CircuitBreaker/AdvancedCircuitController.cs",
+              "metric_value": 42.0
+            },
+            {
+              "entity_name": "CircuitBreaker.CircuitBreakerPolicy",
+              "file_path": "src/Polly/CircuitBreaker/CircuitBreakerPolicy.cs",
+              "metric_value": 38.0
+            },
+            {
+              "entity_name": "IAsyncPolicy",
+              "file_path": "src/Polly/IAsyncPolicy.cs",
+              "metric_value": 37.0
+            },
+            {
+              "entity_name": "Utils.Pipeline.CompositeComponent",
+              "file_path": "src/Polly.Core/Utils/Pipeline/CompositeComponent.cs",
+              "metric_value": 37.0
+            },
+            {
+              "entity_name": "Utils.Pipeline.DelegatingComponent",
+              "file_path": "src/Polly.Core/Utils/Pipeline/DelegatingComponent.cs",
+              "metric_value": 37.0
+            },
+            {
+              "entity_name": "Hedging.Controller.TaskExecution.TaskExecution<T>",
+              "file_path": "src/Polly.Core/Hedging/Controller/TaskExecution.cs",
+              "metric_value": 35.0
+            },
+            {
+              "entity_name": "CircuitBreaker",
+              "file_path": "bench/Polly.Benchmarks/CircuitBreaker.cs",
+              "metric_value": 31.0
+            },
+            {
+              "entity_name": "Wrap.PolicyWrap",
+              "file_path": "src/Polly/Wrap/PolicyWrap.cs",
+              "metric_value": 30.0
+            },
+            {
+              "entity_name": "ISyncPolicy",
+              "file_path": "src/Polly/ISyncPolicy.cs",
+              "metric_value": 25.0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "check_name": "circular_dependencies",
+      "description": "Detects circular dependencies between packages",
+      "check_type": "circular_dependencies",
+      "cycles": [
+        "Fallback -> Utils -> Hedging.Controller -> Hedging -> Utils.Pipeline -> Fallback",
+        "Fallback -> Utils -> Utils.Pipeline -> Fallback",
+        "CircuitBreaker -> CircuitBreaker.Controller -> CircuitBreaker",
+        "CircuitBreaker -> Utils -> CircuitBreaker",
+        "CircuitBreaker -> Utils -> CircuitBreaker.Controller -> CircuitBreaker",
+        "CircuitBreaker -> Utils -> Hedging.Controller -> CircuitBreaker",
+        "CircuitBreaker -> Utils -> Hedging.Controller -> CircuitBreaker.Controller -> CircuitBreaker",
+        "CircuitBreaker -> Utils -> Hedging.Controller -> Hedging -> Utils.Pipeline -> CircuitBreaker",
+        "CircuitBreaker -> Utils -> Hedging.Controller -> Hedging -> Utils.Pipeline -> CircuitBreaker.Controller -> CircuitBreaker",
+        "CircuitBreaker -> Utils -> Hedging.Controller -> Hedging -> Utils.Pipeline -> Timeout -> CircuitBreaker",
+        "CircuitBreaker -> Utils -> Hedging.Controller -> Hedging -> Utils.Pipeline -> Timeout -> CircuitBreaker.Controller -> CircuitBreaker",
+        "CircuitBreaker -> Utils -> Utils.Pipeline -> CircuitBreaker",
+        "CircuitBreaker -> Utils -> Utils.Pipeline -> CircuitBreaker.Controller -> CircuitBreaker",
+        "CircuitBreaker -> Utils -> Utils.Pipeline -> Hedging -> Hedging.Controller -> CircuitBreaker",
+        "CircuitBreaker -> Utils -> Utils.Pipeline -> Hedging -> Hedging.Controller -> CircuitBreaker.Controller -> CircuitBreaker",
+        "CircuitBreaker -> Utils -> Utils.Pipeline -> Hedging.Controller -> CircuitBreaker",
+        "CircuitBreaker -> Utils -> Utils.Pipeline -> Hedging.Controller -> CircuitBreaker.Controller -> CircuitBreaker",
+        "CircuitBreaker -> Utils -> Utils.Pipeline -> Timeout -> CircuitBreaker",
+        "CircuitBreaker -> Utils -> Utils.Pipeline -> Timeout -> CircuitBreaker.Controller -> CircuitBreaker",
+        "Simmy -> Simmy.Utils -> Simmy",
+        "Simmy -> Simmy.Utils -> Utils -> Hedging.Controller -> Hedging -> Utils.Pipeline -> Simmy.Behavior -> Simmy",
+        "Simmy -> Simmy.Utils -> Utils -> Hedging.Controller -> Hedging -> Utils.Pipeline -> Simmy.Fault -> Simmy",
+        "Simmy -> Simmy.Utils -> Utils -> Hedging.Controller -> Hedging -> Utils.Pipeline -> Simmy.Latency -> Simmy",
+        "Simmy -> Simmy.Utils -> Utils -> Hedging.Controller -> Hedging -> Utils.Pipeline -> Simmy.Outcomes -> Simmy",
+        "Simmy -> Simmy.Utils -> Utils -> Utils.Pipeline -> Simmy.Behavior -> Simmy",
+        "Simmy -> Simmy.Utils -> Utils -> Utils.Pipeline -> Simmy.Fault -> Simmy",
+        "Simmy -> Simmy.Utils -> Utils -> Utils.Pipeline -> Simmy.Latency -> Simmy",
+        "Simmy -> Simmy.Utils -> Utils -> Utils.Pipeline -> Simmy.Outcomes -> Simmy",
+        "Simmy -> Utils -> Hedging.Controller -> Hedging -> Utils.Pipeline -> Simmy.Behavior -> Simmy",
+        "Simmy -> Utils -> Hedging.Controller -> Hedging -> Utils.Pipeline -> Simmy.Fault -> Simmy",
+        "Simmy -> Utils -> Hedging.Controller -> Hedging -> Utils.Pipeline -> Simmy.Fault -> Simmy.Utils -> Simmy",
+        "Simmy -> Utils -> Hedging.Controller -> Hedging -> Utils.Pipeline -> Simmy.Latency -> Simmy",
+        "Simmy -> Utils -> Hedging.Controller -> Hedging -> Utils.Pipeline -> Simmy.Outcomes -> Simmy",
+        "Simmy -> Utils -> Hedging.Controller -> Hedging -> Utils.Pipeline -> Simmy.Outcomes -> Simmy.Utils -> Simmy",
+        "Simmy -> Utils -> Utils.Pipeline -> Simmy.Behavior -> Simmy",
+        "Simmy -> Utils -> Utils.Pipeline -> Simmy.Fault -> Simmy",
+        "Simmy -> Utils -> Utils.Pipeline -> Simmy.Fault -> Simmy.Utils -> Simmy",
+        "Simmy -> Utils -> Utils.Pipeline -> Simmy.Latency -> Simmy",
+        "Simmy -> Utils -> Utils.Pipeline -> Simmy.Outcomes -> Simmy",
+        "Simmy -> Utils -> Utils.Pipeline -> Simmy.Outcomes -> Simmy.Utils -> Simmy",
+        "Hedging.Controller -> Hedging -> Hedging.Controller",
+        "Hedging.Controller -> Hedging -> Utils -> Hedging.Controller",
+        "Hedging.Controller -> Hedging -> Utils -> Utils.Pipeline -> Hedging.Controller",
+        "Hedging.Controller -> Hedging -> Utils.Pipeline -> Hedging.Controller",
+        "Hedging.Controller -> Hedging -> Utils.Pipeline -> Retry -> Utils -> Hedging.Controller",
+        "Hedging.Controller -> Hedging -> Utils.Pipeline -> Simmy.Behavior -> Utils -> Hedging.Controller",
+        "Hedging.Controller -> Hedging -> Utils.Pipeline -> Simmy.Fault -> Simmy.Utils -> Utils -> Hedging.Controller",
+        "Hedging.Controller -> Hedging -> Utils.Pipeline -> Simmy.Fault -> Utils -> Hedging.Controller",
+        "Hedging.Controller -> Hedging -> Utils.Pipeline -> Simmy.Latency -> Utils -> Hedging.Controller",
+        "Hedging.Controller -> Hedging -> Utils.Pipeline -> Simmy.Outcomes -> Simmy.Utils -> Utils -> Hedging.Controller"
+      ],
+      "packages_checked": 31,
+      "packages_in_cycles": 15
+    },
+    {
+      "check_name": "package_instability",
+      "description": "Computes Martin's instability metric (I = Ce / (Ca + Ce)) per package",
+      "check_type": "standard",
+      "total_entities_checked": 28,
+      "findings_count": 7,
+      "warning_count": 7,
+      "score": 0.75,
+      "finding_groups": [
+        {
+          "severity": "warning",
+          "threshold": 0.8,
+          "description": "Packages with instability >= 0.8 that are depended on by others",
+          "entities": [
+            {
+              "entity_name": "Timeout",
+              "metric_value": 0.9
+            },
+            {
+              "entity_name": "Simmy.Fault",
+              "metric_value": 0.875
+            },
+            {
+              "entity_name": "Simmy.Outcomes",
+              "metric_value": 0.875
+            },
+            {
+              "entity_name": "Fallback",
+              "metric_value": 0.833
+            },
+            {
+              "entity_name": "Retry",
+              "metric_value": 0.833
+            },
+            {
+              "entity_name": "Simmy.Behavior",
+              "metric_value": 0.833
+            },
+            {
+              "entity_name": "Simmy.Latency",
+              "metric_value": 0.833
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "check_name": "unused_code_diagnostics",
+      "description": "Detects unused imports, variables, functions, and dead code via LSP diagnostics",
+      "check_type": "standard",
+      "total_entities_checked": 1,
+      "findings_count": 1,
+      "warning_count": 1,
+      "score": 0.95,
+      "finding_groups": [
+        {
+          "severity": "warning",
+          "threshold": 0,
+          "description": "Unused import statements that should be removed",
+          "entities": [
+            {
+              "entity_name": "[unused_import] Unnecessary using directive.",
+              "file_path": "src/Snippets/Docs/CircuitBreaker.cs",
+              "line_start": 1,
+              "line_end": 1,
+              "metric_value": 0.0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "file_summaries": [
+    {
+      "file_path": "src/Polly.Core/ResiliencePipeline.AsyncT.cs",
+      "total_findings": 6,
+      "warning_findings": 6,
+      "composite_risk_score": 80.0
+    },
+    {
+      "file_path": "src/Polly.Core/Utils/Pipeline/DelegatingComponent.cs",
+      "total_findings": 6,
+      "warning_findings": 6,
+      "composite_risk_score": 80.0
+    },
+    {
+      "file_path": "src/Polly.Core/Utils/Pipeline/ReloadableComponent.cs",
+      "total_findings": 5,
+      "warning_findings": 5,
+      "composite_risk_score": 75.0
+    },
+    {
+      "file_path": "src/Polly/AsyncPolicy.ExecuteOverloads.cs",
+      "total_findings": 5,
+      "warning_findings": 5,
+      "composite_risk_score": 75.0
+    },
+    {
+      "file_path": "src/Polly.Core/ResiliencePipeline.Async.cs",
+      "total_findings": 5,
+      "warning_findings": 5,
+      "composite_risk_score": 75.0
+    },
+    {
+      "file_path": "src/Polly.Core/Utils/Pipeline/PipelineComponent.cs",
+      "total_findings": 5,
+      "warning_findings": 5,
+      "composite_risk_score": 75.0
+    },
+    {
+      "file_path": "src/Polly/CircuitBreaker/AdvancedCircuitController.cs",
+      "total_findings": 4,
+      "warning_findings": 4,
+      "composite_risk_score": 60.0
+    },
+    {
+      "file_path": "src/Polly.Core/Registry/ResiliencePipelineRegistry.cs",
+      "total_findings": 4,
+      "warning_findings": 4,
+      "composite_risk_score": 60.0
+    },
+    {
+      "file_path": "src/Polly.Core/Utils/Pipeline/CompositeComponent.cs",
+      "total_findings": 4,
+      "warning_findings": 4,
+      "composite_risk_score": 60.0
+    },
+    {
+      "file_path": "src/Polly/AsyncPolicy.TResult.ExecuteOverloads.cs",
+      "total_findings": 3,
+      "warning_findings": 3,
+      "composite_risk_score": 45.0
+    },
+    {
+      "file_path": "src/Polly/Policy.ExecuteOverloads.cs",
+      "total_findings": 3,
+      "warning_findings": 3,
+      "composite_risk_score": 45.0
+    },
+    {
+      "file_path": "src/Polly.Core/CircuitBreaker/Controller/CircuitStateController.cs",
+      "total_findings": 3,
+      "warning_findings": 3,
+      "composite_risk_score": 45.0
+    },
+    {
+      "file_path": "src/Polly/Timeout/TimeoutSyntax.cs",
+      "total_findings": 3,
+      "warning_findings": 3,
+      "composite_risk_score": 45.0
+    },
+    {
+      "file_path": "src/Polly/IAsyncPolicy.cs",
+      "total_findings": 3,
+      "warning_findings": 3,
+      "composite_risk_score": 45.0
+    },
+    {
+      "file_path": "src/Polly/Caching/AsyncCacheTResultSyntax.cs",
+      "total_findings": 3,
+      "warning_findings": 3,
+      "composite_risk_score": 45.0
+    },
+    {
+      "file_path": "src/Polly/Caching/CacheTResultSyntax.cs",
+      "total_findings": 3,
+      "warning_findings": 3,
+      "composite_risk_score": 45.0
+    },
+    {
+      "file_path": "src/Polly/CircuitBreaker/CircuitBreakerPolicy.cs",
+      "total_findings": 2,
+      "warning_findings": 2,
+      "composite_risk_score": 30.0
+    },
+    {
+      "file_path": "src/Polly/Wrap/PolicyWrap.cs",
+      "total_findings": 2,
+      "warning_findings": 2,
+      "composite_risk_score": 30.0
+    },
+    {
+      "file_path": "src/Polly/Policy.TResult.ExecuteOverloads.cs",
+      "total_findings": 2,
+      "warning_findings": 2,
+      "composite_risk_score": 30.0
+    },
+    {
+      "file_path": "src/Polly.Core/Hedging/Controller/TaskExecution.cs",
+      "total_findings": 2,
+      "warning_findings": 2,
+      "composite_risk_score": 30.0
+    }
+  ]
+}
