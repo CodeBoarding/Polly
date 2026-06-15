@@ -26,6 +26,20 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
+      - name: Setup Java for JDTLS
+        uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: '21'
+
+      - name: Setup .NET SDKs for C# LSP
+        uses: actions/setup-dotnet@v5
+        with:
+          dotnet-version: |
+            8.0.x
+            9.0.x
+            10.0.x
+
       - uses: CodeBoarding/CodeBoarding-action@v1.5.0
         with:
           mode: sync
